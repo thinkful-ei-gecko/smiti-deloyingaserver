@@ -1,14 +1,16 @@
 const express = require('express')
+const cardRouter = express.Router()
 const uuid = require('uuid/v4')
+const logger = require('./logger')
 const { cards, lists } = require('./store');
 
-const cardRouter = express.Router()
+
 const bodyParser = express.json()
 
 
 
 cardRouter
-    .route('/card')
+    .route('/')
     .get((req, res) => {
         // move implementation logic into here
         res.json(cards);
@@ -68,7 +70,7 @@ cardRouter
     })
 
 cardRouter
-    .route('/card/:id')
+    .route('/:id')
     .get((req, res) => {
         const { id } = req.params;
         const card = cards.find(c => c.id == id);

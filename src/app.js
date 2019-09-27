@@ -15,7 +15,8 @@ const app = express();
 const uuid = require('uuid/v4');
 
 const morganOption = NODE_ENV === 'production' ? 'tiny' : 'common';
-
+//app.use(express.json()); instead using body parse passing
+//it each router.
 app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
@@ -34,7 +35,7 @@ app.use(function validateBearerToken(req, res, next) {
     next()
 })
 
-app.use(cardRouter)
+app.use('/card', cardRouter)
 app.use(listRouter)
 //make get post delete run
 

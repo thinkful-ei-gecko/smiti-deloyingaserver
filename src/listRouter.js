@@ -1,7 +1,7 @@
 const express = require('express')
 const uuid = require('uuid/v4')
-const logger = require('../logger')
-const { cards, lists } = require('../store')
+const logger = require('./logger')
+const { cards, lists } = require('./store')
 
 const listRouter = express.Router()
 const bodyParser = express.json()

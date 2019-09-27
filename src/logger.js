@@ -16,3 +16,7 @@ if (NODE_ENV !== 'production') {
 }
 
 module.exports = logger
+
+
+//A middleware to write output eroor in info.log
+//if there is any error w/ logger.error n logger.info
